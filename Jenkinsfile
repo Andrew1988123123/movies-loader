@@ -15,7 +15,7 @@ node{
     }
 
     stage('Push'){
-        docker.withRegistry('https://hub.docker.com', '74734589924') {
+        docker.withRegistry(registry, 'registry', '74734589924') {
             docker.image(imageName).push(commitID())
 
             if (env.BRANCH_NAME == 'master') {
