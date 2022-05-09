@@ -14,7 +14,7 @@ node{
         docker.build(imageName)
     }
     stage('Push'){
-        docker.withRegistry('https://registry.hub.docker.com','74734589924') {
+        docker.withRegistry('http://192.168.18.138:32001/repository/11111/','jenkins-nexus') {
             docker.image(imageName).push(commitID())
 
             if (env.BRANCH_NAME == 'master') {
