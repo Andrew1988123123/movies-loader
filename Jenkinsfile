@@ -14,7 +14,7 @@ node{
         docker.build(imageName)
     }
     stage('Push'){
-        docker.withRegistry('http://192.168.18.138:32001/repository/11111/','jenkins-nexus') {
+        docker.withRegistry('http://192.168.18.138:32001/repository/movies/','jenkins-nexus') {
             docker.image(imageName).push(commitID())
 
             if (env.BRANCH_NAME == 'master') {
